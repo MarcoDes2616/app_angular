@@ -1,27 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {User} from './user.model'
+import { DataServices } from './data.services';
 
 @Component({
   selector: 'app-create-users',
   templateUrl: './create-users.component.html',
-  styleUrls: ['./create-users.component.css']
+  styleUrls: ['./create-users.component.css'],
+  providers: [DataServices]
 })
-export class CreateUsersComponent {
-  users: User[] = [new User("Marco", "Cardenas"), new User("Lucas", "Cardenas")]
+export class CreateUsersComponent implements OnInit {
+  users:User[] = [] 
 
-  nombreI:string = ""
-  apellidoI:string = ""
-
-  agregarUsuario(){
-    let usuario = new User(this.nombreI, this.apellidoI)
-
-    this.users.push(usuario)
-    this.nombreI = ""
-    this.apellidoI = ""
+  constructor(private dataServices:DataServices ){}
+    
+  ngOnInit(): void {
+    this.users = this.dataServices.users
   }
 
-  ingresarUsuarion(user: User){
-    this.users.push(user)
+  ingresarUsuario(user: User){
+    this.dataServices.newUser(user)
   }
 
 }

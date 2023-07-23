@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from '../user.model';
+import { DataServices } from '../data.services';
 // import { User } from '../user.model';
 
 @Component({
@@ -9,16 +10,17 @@ import { User } from '../user.model';
 })
 export class FormComponent {
   
-  @Output() usuarioCreado: EventEmitter<User> = new EventEmitter<User>()
-  
+  // @Output() usuarioCreado: EventEmitter<User> = new EventEmitter<User>()
+  constructor(private dataServices:DataServices){}
+
   nombreI: string = '';
   apellidoI: string = '';
 
   agregarUsuario() {
     let usuario = new User(this.nombreI, this.apellidoI);
-
+    this.dataServices.newUser(usuario)
     
-    this.usuarioCreado.emit(usuario)
+    // this.usuarioCreado.emit(usuario)
     this.nombreI = '';
     this.apellidoI = '';
   }
