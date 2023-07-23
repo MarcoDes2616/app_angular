@@ -2,18 +2,19 @@
   <h1>Mis aplicaciones de Angular</h1>
   <div class="main">
     <div class="card">
-      <h3>Aplicación de Usuarios</h3>
-      <p></p>
+      <h3>Aplicación de Enlaces</h3>
+      <p>En esta aplicacion conocimos los terminos de <b>Property Binding</b>, <b>Event Binding</b> y <b>Two Way Binding</b> 
+        los cuales se aplican empleando lo que se conoce en otras tecnologías como un Input Controlado. Además manejamos eventos (click) para modificar estados inicales. Se inicializa el concepto de componentes y el renderizado estático en componentes padres.</p>
       <button (click)="changeApp(1)">ver mas...</button>
     </div>
     <div class="card">
       <h3>Aplicación de Calculadora</h3>
-      <p></p>
+      <p>En esta aplicación incorporamos los conceptos de comunicación entre componentes y el flujo de la informacion con los decoradores @Input y @Output. Se emplearon 2 componentes hijos: el primero de los componentes maneja los inputs controlados con variables no iniciadas y un botón con un evento (click). El resultado viaja al componente padre el cual pasa al segundo componente hijo para renderizar el resultado correspondiente</p>
       <button (click)="changeApp(2)">ver mas...</button>
     </div>
     <div class="card">
       <h3>Aplicación de Formulario</h3>
-      <p></p>
+      <p>En esta aplicación se inicia el concepto de servicios y manejo de eventos personalizados. La comunicación entre componentes se empleó de 2 formas, con el uso de decoradores @Input y @Output, y posteriormente con la configuracion de eventos en un servicio de Angular, mediante el cual se envia informacion entre componentes hermanos.</p>
       <button (click)="changeApp(3)">ver mas...</button>
     </div>
   </div>

@@ -25,22 +25,23 @@ h1, h3 {
 }
 
 .card{
-  /* width: 100%; */
   border-right: 1px solid aqua;
   border-bottom: 1px solid aqua;
-  height: 200px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 
 .aplicaciones{
-  width: 100%;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   border-right: 1px solid aqua;
   border-bottom: 1px solid aqua;
+  padding: 2rem;
 }
 
 .box {
@@ -50,6 +51,13 @@ h1, h3 {
   /* background: white; */
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.app_inplement{
+  display: flex;
+  width: 800px;
+  flex-direction: column;
+  /* border: 1px solid #00204a; */
 }
 
 #heading {
@@ -78,6 +86,7 @@ p {
   font-size: 20px;
   font-weight: 200;
   color: #00204a;
+  text-align: justify;
 }
 
 form {
@@ -87,7 +96,7 @@ form {
 
 button {
   min-height: 50px;
-  width: 150px;
+  width: 300px;
   border-radius: 5%;
   border-color: transparent;
   background-color: #3f51b5;
@@ -98,12 +107,13 @@ button {
   margin: auto;
 }
 
-input[type="text"] {
+input {
   text-align: center;
-  height: 60px;
+  height: 50px;
+  border-radius: 8px;
   top: 10px;
   border: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.253);
   font-size: 20px;
   font-weight: 200;
   width: 40%;
@@ -117,4 +127,13 @@ input[type="text"]:focus {
 ::placeholder {
   color: grey;
   opacity: 1;
+}
+
+.form_calc{
+  display: flex;
+}
+.form_calc div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

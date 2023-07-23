@@ -1,8 +1,14 @@
 <div>
-    <p>Operando A:</p>
-    <input type="number" placeholder="Ingresa el operando A" class="form-control" [(ngModel)]="a">
-    <p>Operando B:</p>
-    <input type="number" placeholder="Ingresa el operando B" class="form-control" [(ngModel)]="b">
+    <div class="form_calc">
+        <div>
+            <p>Operando A:</p>
+            <input type="number" placeholder="Ingresa el operando A" [(ngModel)]="a">
+        </div>
+        <div>
+            <p>Operando B:</p>
+            <input type="number" placeholder="Ingresa el operando B" [(ngModel)]="b">
+        </div>
+    </div>
     <div class="col">
         <br>
         <button class="btn btn-primary" (click)="sumar()">Calcular</button>
