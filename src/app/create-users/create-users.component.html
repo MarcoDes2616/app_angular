@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <h1>Agregando usuarios</h1>
+    <hr>
+    <app-form (usuarioCreado)="ingresarUsuarion($event)">
+        
+    </app-form>
+    <hr>
+    <app-user *ngFor="let user of users; let i = index" [user] = "user" [i] = "i">
+
+    </app-user>
+    <br>
+    <hr>
+    <br>
+    <br>
+  </div>
+</div>
