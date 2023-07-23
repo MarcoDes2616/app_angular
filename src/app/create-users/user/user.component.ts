@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { User } from '../user.model';
+import { DataServices } from '../data.services';
 
 
 @Component({
@@ -10,4 +11,10 @@ import { User } from '../user.model';
 export class UserComponent {
   @Input() user: User;
   @Input() i:number;
+
+  constructor(private dataServices:DataServices){}
+
+  emitirSaludo(){
+    this.dataServices.saludar.emit(this.user.nombre)
+  }
 }

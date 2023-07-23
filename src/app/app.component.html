@@ -1,9 +1,25 @@
-<div class="container">
-    <app-personas></app-personas>
-    <hr>
-    <app-calculadora></app-calculadora>
-    <hr>
-    <app-create-users></app-create-users>
+<div class="box">
+  <h1>Mis aplicaciones de Angular</h1>
+  <div class="main">
+    <div class="card">
+      <h3>Aplicación de Usuarios</h3>
+      <p></p>
+      <button (click)="changeApp(1)">ver mas...</button>
+    </div>
+    <div class="card">
+      <h3>Aplicación de Calculadora</h3>
+      <p></p>
+      <button (click)="changeApp(2)">ver mas...</button>
+    </div>
+    <div class="card">
+      <h3>Aplicación de Formulario</h3>
+      <p></p>
+      <button (click)="changeApp(3)">ver mas...</button>
+    </div>
+  </div>
+  <div class="aplicaciones">
+    <app-personas *ngIf="app == 1"></app-personas>
+    <app-calculadora *ngIf="app == 2"></app-calculadora>
+    <app-create-users *ngIf="app == 3"></app-create-users>
+  </div>
 </div>
-
-

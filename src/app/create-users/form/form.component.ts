@@ -11,7 +11,11 @@ import { DataServices } from '../data.services';
 export class FormComponent {
   
   // @Output() usuarioCreado: EventEmitter<User> = new EventEmitter<User>()
-  constructor(private dataServices:DataServices){}
+  constructor(private dataServices:DataServices){
+    this.dataServices.saludar.subscribe(
+      (nombre:string) => alert(nombre + " te está saludando")
+    )
+  }
 
   nombreI: string = '';
   apellidoI: string = '';
