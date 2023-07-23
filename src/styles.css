@@ -42,13 +42,13 @@ h1, h3 {
   border-right: 1px solid aqua;
   border-bottom: 1px solid aqua;
   padding: 2rem;
+  align-items: center;
 }
 
 .box {
   padding: 2rem;
   max-width: 1366px;
   margin: 50px auto;
-  /* background: white; */
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
@@ -57,6 +57,8 @@ h1, h3 {
   display: flex;
   width: 800px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* border: 1px solid #00204a; */
 }
 
