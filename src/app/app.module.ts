@@ -11,6 +11,9 @@ import { UserComponent } from './create-users/user/user.component';
 import { FormComponent } from './create-users/form/form.component';
 import { FormCalcComponent } from './calculadora/form/form';
 import { ResultCalcComponent } from './calculadora/result/result';
+import { PresupuestoComponent } from './presupuesto/presupuesto.component';
+import { IngresosComponent } from './presupuesto/ingresos/ingresos';
+import { EgresosComponent } from './presupuesto/egresos/egresos';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ResultCalcComponent } from './calculadora/result/result';
     UserComponent,
     FormComponent,
     FormCalcComponent,
-    ResultCalcComponent
+    ResultCalcComponent,
+    PresupuestoComponent,
+    IngresosComponent,
+    EgresosComponent
   ],
   imports: [
     BrowserModule, FormsModule
