@@ -17,10 +17,16 @@
       <p>En esta aplicación se inicia el concepto de servicios y manejo de eventos personalizados. La comunicación entre componentes se empleó de 2 formas, con el uso de decoradores @Input y @Output, y posteriormente con la configuracion de eventos en un servicio de Angular, mediante el cual se envia informacion entre componentes hermanos.</p>
       <button (click)="changeApp(3)">ver mas...</button>
     </div>
+    <div class="card">
+      <h3>Aplicación de Presupuesto</h3>
+      <p>En esta aplicación se inicia </p>
+      <button (click)="changeApp(4)">ver mas...</button>
+    </div>
   </div>
   <div class="aplicaciones">
     <app-personas *ngIf="app == 1"></app-personas>
     <app-calculadora *ngIf="app == 2"></app-calculadora>
     <app-create-users *ngIf="app == 3"></app-create-users>
+    <app-presupuesto *ngIf="app == 4"></app-presupuesto>
   </div>
 </div>

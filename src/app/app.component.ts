@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'MyApp';
   saludo = "Saludos desde Angular"
-  app:number = 1
+  app:number = 4
 
   changeApp(n:number){
     this.app = n
