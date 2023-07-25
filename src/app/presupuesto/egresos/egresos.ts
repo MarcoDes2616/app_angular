@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movimiento } from '../movimiento.model';
 
 @Component({
   selector: 'app-egresos',
@@ -8,14 +9,6 @@ import { Component } from '@angular/core';
 
 
 export class EgresosComponent {
-//     a: number;
-//     b: number;
-    
-//     @Output() result:EventEmitter<number> = new EventEmitter<number>()
-
-// //   resultado: number = 0;
-//   sumar() {
-//     let resultado = this.a + this.b;
-//     this.result.emit(resultado)
-//   }
+  @Input() moviEg:Movimiento;
+  @Input() index:number;
 }
