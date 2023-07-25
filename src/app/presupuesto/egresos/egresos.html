@@ -1,5 +1,11 @@
 <div class="movimientos">
-    <p>{{moviEg.descripcion}}</p>
-    <p>{{moviEg.monto}}</p>
-    <button>Eliminar</button>
+    <h4>Egresos</h4>
+    <div *ngFor="let mov of egresos; let i = index" class="m_container">
+        <div class="m">
+            <p>{{mov.descripcion}}</p>
+            <p>-{{mov.monto}}</p>
+            <p>{{calculoPorcentualMov(mov.monto)}}%</p>
+            <button (click) = "reportarIndice(i)">Eliminar</button>
+        </div>
+    </div>
 </div>

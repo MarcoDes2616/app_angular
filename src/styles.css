@@ -162,16 +162,28 @@ input[type="text"]:focus {
 }
 
 .p_input{
+  width: calc(1366px - 8rem);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 80px;
   background-color: white;
 }
 
 .p_input select{
   width: 35px;
   height: 35px;
+}
+
+.p_input button{
+  width: 100px;
+  font-size: 1rem;
+}
+
+.p_input input{
+  width: 150px;
+  background-color: #dfdfdf;
+  margin: 1rem;
 }
 
 .p_child{
@@ -192,7 +204,16 @@ input[type="text"]:focus {
 
 .movimientos{
   width: 400px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; */
+}
+
+.movimientos div{
+  display: flex;
+}
+
+.movimientos div button{
+  width: 100px;
+  font-size: 1rem;
 }

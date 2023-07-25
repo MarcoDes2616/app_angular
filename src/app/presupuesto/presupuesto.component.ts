@@ -10,22 +10,24 @@ import { deleteMov } from './delete.model';
 export class PresupuestoComponent implements OnInit{
     egresos:Movimiento[] = [ new Movimiento("Telefono celular", 450), new Movimiento("Pago de renta hogar", 250)]
     ingresos:Movimiento[] = [ new Movimiento("Sueldo/Salario", 1500), new Movimiento("Venta de articulos varios", 850)]
-    totalEgreso:number;
-    totalIngreso:number;
-    porcentualEgreso:number;
+    tipo:string = "ingreso" 
     
     ngOnInit(){
-      this.calculoEgresos()
-      this.calculoIngresos()
-      this.calculoPorcentual()
+      // this.calculoEgresos()
+      // this.calculoIngresos()
+      // this.calculoPorcentual()
     }
 
     calculoPorcentual(){
-      if(this.totalIngreso > 0){
-        this.porcentualEgreso = (this.totalEgreso / this.totalIngreso * 100)
+      const e = this.calculoEgresos()
+      const i = this.calculoIngresos()
+      let result
+      if(i > 0){
+        result = (e / i * 100)
       } else {
-        this.porcentualEgreso = 0
+        result = 0
       }
+      return result.toFixed(2)
     }
     
     calculoEgresos(){
@@ -33,7 +35,7 @@ export class PresupuestoComponent implements OnInit{
       this.egresos.forEach(item => {
         resultado += item.monto
       })
-      this.totalEgreso = resultado
+      return resultado;
     }
 
     calculoIngresos(){
@@ -41,12 +43,32 @@ export class PresupuestoComponent implements OnInit{
       this.ingresos.forEach(item => {
         resultado += item.monto
       })
-      this.totalIngreso = resultado
+      return resultado;
     }
 
-    deleteIngreso(data:deleteMov){
-      this.ingresos.splice(data.index, 1)
-      this.calculoIngresos()
-      this.calculoPorcentual()
+    deleteMovimiento(data:deleteMov){
+      if(data.tipo == "ingresos"){
+        this.ingresos.splice(data.index, 1)
+      } else {
+        this.egresos.splice(data.index, 1)
+      }
+    }
+
+    setTipo(tipo:any){
+      this.tipo = tipo.target.value
+    }
+
+    newMovimiento(descripcion:HTMLInputElement, monto:HTMLInputElement){
+      let movimiento = new Movimiento(descripcion.value, parseFloat(monto.value))
+      if(this.tipo == "ingreso"){
+        this.ingresos.push(movimiento)
+       
+      } else {
+        this.egresos.push(movimiento)
+        // this.calculoEgresos()
+      }
+      descripcion.value = ""
+      monto.value = ""
+      // this.calculoPorcentual()
     }
 }

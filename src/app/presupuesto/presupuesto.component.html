@@ -1,28 +1,31 @@
 <div class="p_header">
     <h2>Presupuesto Disponible</h2>
-    <p>${{totalIngreso - totalEgreso}}</p>
+    <p>${{calculoIngresos() - calculoEgresos()}}</p>
     <div class="p_detail ingreso">
         <p>INGRESOS</p>
-        <P>{{totalIngreso}}</P>
+        <P>{{calculoIngresos()}}</P>
     </div>
     <div class="p_detail egreso">
         <P>EGRESOS</P>
-        <P>{{totalEgreso}}</P>
-        <P>{{porcentualEgreso.toFixed(2)}}%</P>
+        <P>{{calculoEgresos()}}</P>
+        <P>{{calculoPorcentual()}}%</P>
     </div>
 </div>
 <div class="p_input">
-    <select name="" id="">
+    <div>
+    <select name="" id="" (change)="setTipo($event)">
         <option value="ingreso">+</option>
         <option value="egreso">-</option>
     </select>
-    <input type="text">
-    <button>Save</button>
+    <input type="text" #descripcion>
+    <input type="number" #monto>
+    <button (click) = "newMovimiento(descripcion, monto)">Save</button>
+</div>
 </div>
 <div class="p_child">
     <app-ingresos 
     [ingresos] = "ingresos"
-    (delete) = "deleteIngreso($event)"
+    (delete) = "deleteMovimiento($event)"
     ></app-ingresos>
-    <app-egresos *ngFor="let mov of egresos; let i = index" [moviEg] = "mov" [index] = "i"></app-egresos>
+    <app-egresos [egresos] = "egresos" (delete) = "deleteMovimiento($event)" [totalIngreso] = "calculoIngresos()"></app-egresos>
 </div>

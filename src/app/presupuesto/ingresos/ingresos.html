@@ -3,8 +3,8 @@
     <div *ngFor="let mov of ingresos; let i = index" class="m_container">
         <div class="m">
             <p>{{mov.descripcion}}</p>
-            <p>{{mov.monto}}</p>
-            <button (click) = "reportarIndice(i)"></button>
+            <p>+{{mov.monto}}</p>
+            <button (click) = "reportarIndice(i)">Eliminar</button>
         </div>
     </div>
 </div>

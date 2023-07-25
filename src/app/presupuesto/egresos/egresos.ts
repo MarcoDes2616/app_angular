@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Movimiento } from '../movimiento.model';
+import { deleteMov } from '../delete.model';
 
 @Component({
   selector: 'app-egresos',
@@ -9,6 +10,16 @@ import { Movimiento } from '../movimiento.model';
 
 
 export class EgresosComponent {
-  @Input() moviEg:Movimiento;
-  @Input() index:number;
+  @Input() egresos:Movimiento[];
+  @Input() totalIngreso:number;
+  @Output() delete:EventEmitter<deleteMov> = new EventEmitter<deleteMov>
+
+  reportarIndice(i:number){
+    let deleteM = new deleteMov("egresos", i)
+    this.delete.emit(deleteM)
+  }
+
+  calculoPorcentualMov(monto:number){
+    return (monto / this.totalIngreso * 100).toFixed(0)
+  }
 }
