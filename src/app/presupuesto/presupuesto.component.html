@@ -1,32 +1,35 @@
 <div class="p_header">
-    <h2>Presupuesto Disponible</h2>
-    <p>${{calculoIngresos() - calculoEgresos()}}</p>
-    <div class="p_detail ingreso">
-        <p>INGRESOS</p>
-        <P>{{calculoIngresos() | currency: "USD" : "symbol": "1.2-2" }}</P>
-    </div>
-    <div class="p_detail egreso">
-        <P>EGRESOS</P>
-        <P>{{calculoEgresos() | currency: "USD" : "symbol": "1.2-2"}}</P>
-        <P>{{calculoPorcentual() | percent : "1.2-2" }}</P>
-    </div>
+  <h2>Presupuesto Disponible</h2>
+  <p>${{ calculoIngresos() - calculoEgresos() }}</p>
+  <div class="p_detail ingreso">
+    <p>INGRESOS</p>
+    <P>{{ calculoIngresos() | currency : "USD" : "symbol" : "1.2-2" }}</P>
+  </div>
+  <div class="p_detail egreso">
+    <P>EGRESOS</P>
+    <P>{{ calculoEgresos() | currency : "USD" : "symbol" : "1.2-2" }}</P>
+    <P>{{ calculoPorcentual() | percent : "1.2-2" }}</P>
+  </div>
 </div>
 <div class="p_input">
-    <div>
-    <select name="" id="" (change)="setTipo($event)">
-        <option value="ingreso">+</option>
-        <option value="egreso">-</option>
-    </select>
-    <input type="text" #descripcion>
-    <input type="number" #monto>
-    <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
-    <button (click) = "newMovimiento(descripcion, monto)">Save</button>
-</div>
+    <form #f="ngForm" (ngSubmit)="f.form.valid && newMovimiento(descripcion, monto)">
+        <select name="tipo" (change)="setTipo($event)" [ngClass]="{ redfocus: tipo === 'egreso' }">
+          <option value="ingreso">+</option>
+          <option value="egreso">-</option>
+        </select>
+        <input type="text" name="descripcion" [ngClass]="{ redfocus: tipo === 'egreso' }" required #descripcion />
+        <input type="number" name="monto" [ngClass]="{ redfocus: tipo === 'egreso' }" required #monto />
+        <button type="submit">Save</button>
+      </form>
 </div>
 <div class="p_child">
-    <app-ingresos 
-    [ingresos] = "ingresos"
-    (delete) = "deleteMovimiento($event)"
-    ></app-ingresos>
-    <app-egresos [egresos] = "egresos" (delete) = "deleteMovimiento($event)" [totalIngreso] = "calculoIngresos()"></app-egresos>
+  <app-ingresos
+    [ingresos]="ingresos"
+    (delete)="deleteMovimiento($event)"
+  ></app-ingresos>
+  <app-egresos
+    [egresos]="egresos"
+    (delete)="deleteMovimiento($event)"
+    [totalIngreso]="calculoIngresos()"
+  ></app-egresos>
 </div>

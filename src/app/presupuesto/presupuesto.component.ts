@@ -59,16 +59,19 @@ export class PresupuestoComponent implements OnInit{
     }
 
     newMovimiento(descripcion:HTMLInputElement, monto:HTMLInputElement){
+
       let movimiento = new Movimiento(descripcion.value, parseFloat(monto.value))
-      if(this.tipo == "ingreso"){
-        this.ingresos.push(movimiento)
-       
-      } else {
-        this.egresos.push(movimiento)
-        // this.calculoEgresos()
+      if(movimiento.descripcion && movimiento.monto){
+        if(this.tipo == "ingreso"){
+          this.ingresos.push(movimiento)
+         
+        } else {
+          this.egresos.push(movimiento)
+          // this.calculoEgresos()
+        }
+        descripcion.value = ""
+        monto.value = ""
       }
-      descripcion.value = ""
-      monto.value = ""
       // this.calculoPorcentual()
     }
 }
