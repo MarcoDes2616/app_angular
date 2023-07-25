@@ -20,6 +20,6 @@ export class EgresosComponent {
   }
 
   calculoPorcentualMov(monto:number){
-    return (monto / this.totalIngreso * 100).toFixed(0)
+    return (monto / this.totalIngreso)
   }
 }

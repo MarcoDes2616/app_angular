@@ -3,12 +3,12 @@
     <p>${{calculoIngresos() - calculoEgresos()}}</p>
     <div class="p_detail ingreso">
         <p>INGRESOS</p>
-        <P>{{calculoIngresos()}}</P>
+        <P>{{calculoIngresos() | currency: "USD" : "symbol": "1.2-2" }}</P>
     </div>
     <div class="p_detail egreso">
         <P>EGRESOS</P>
-        <P>{{calculoEgresos()}}</P>
-        <P>{{calculoPorcentual()}}%</P>
+        <P>{{calculoEgresos() | currency: "USD" : "symbol": "1.2-2"}}</P>
+        <P>{{calculoPorcentual() | percent : "1.2-2" }}</P>
     </div>
 </div>
 <div class="p_input">
@@ -19,6 +19,7 @@
     </select>
     <input type="text" #descripcion>
     <input type="number" #monto>
+    <!-- <ion-icon name="checkmark-circle-outline"></ion-icon> -->
     <button (click) = "newMovimiento(descripcion, monto)">Save</button>
 </div>
 </div>

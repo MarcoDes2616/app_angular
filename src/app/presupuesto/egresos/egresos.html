@@ -4,7 +4,7 @@
         <div class="m">
             <p>{{mov.descripcion}}</p>
             <p>-{{mov.monto}}</p>
-            <p>{{calculoPorcentualMov(mov.monto)}}%</p>
+            <p>{{calculoPorcentualMov(mov.monto) | percent : "1.0-0"}}</p>
             <button (click) = "reportarIndice(i)">Eliminar</button>
         </div>
     </div>

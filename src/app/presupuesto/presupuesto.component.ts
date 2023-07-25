@@ -23,11 +23,11 @@ export class PresupuestoComponent implements OnInit{
       const i = this.calculoIngresos()
       let result
       if(i > 0){
-        result = (e / i * 100)
+        result = (e / i)
       } else {
         result = 0
       }
-      return result.toFixed(2)
+      return result
     }
     
     calculoEgresos(){
