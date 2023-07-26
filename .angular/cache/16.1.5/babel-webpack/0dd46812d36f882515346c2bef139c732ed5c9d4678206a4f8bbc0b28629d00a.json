@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Movimiento {\n  constructor(descripcion, monto) {\n    this.descripcion = descripcion;\n    this.monto = monto;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

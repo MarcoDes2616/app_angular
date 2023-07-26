@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class deleteMov {\n  constructor(tipo, index) {\n    this.tipo = tipo;\n    this.index = index;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

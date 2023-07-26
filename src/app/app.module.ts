@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { PersonasComponent } from './personas/personas.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './create-users/user/user.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { CreateUsersComponent } from './create-users/create-users.component';
-import { UserComponent } from './create-users/user/user.component';
+import { AppRoutingModule } from './app-routing.module';
 import { FormComponent } from './create-users/form/form.component';
 import { FormCalcComponent } from './calculadora/form/form';
 import { ResultCalcComponent } from './calculadora/result/result';
@@ -31,7 +32,7 @@ import { EgresosComponent } from './presupuesto/egresos/egresos';
     EgresosComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
