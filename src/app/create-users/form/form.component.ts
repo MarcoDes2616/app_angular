@@ -1,30 +1,39 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from '../user.model';
 import { DataServices } from '../data.services';
-// import { User } from '../user.model';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   //   styleUrls: ['./create-users.component.css']
 })
-export class FormComponent {
-  
+export class FormComponent implements OnInit {
+  idSelected:number
   // @Output() usuarioCreado: EventEmitter<User> = new EventEmitter<User>()
   constructor(private dataServices:DataServices){
-    this.dataServices.saludar.subscribe(
-      (nombre:string) => alert(nombre + " te está saludando")
-    )
+    
+  }
+    
+  ngOnInit(): void {
+    this.dataServices.userSelected$.subscribe(({ user, index }) => {
+      this.nombreI = user.nombre
+      this.apellidoI = user.apellido
+      this.idSelected = index
+    });
   }
 
   nombreI: string = '';
   apellidoI: string = '';
 
   agregarUsuario() {
-    let usuario = new User(this.nombreI, this.apellidoI);
-    this.dataServices.newUser(usuario)
+    console.log(this.idSelected);
     
-    // this.usuarioCreado.emit(usuario)
+    let usuario = new User(this.nombreI, this.apellidoI);
+    if(this.idSelected){
+      this.dataServices.updateUser(this.idSelected, usuario)
+    } else {
+      this.dataServices.newUser(usuario)
+    }
     this.nombreI = '';
     this.apellidoI = '';
   }

@@ -9,12 +9,27 @@ import { DataServices } from './data.services';
   providers: [DataServices]
 })
 export class CreateUsersComponent implements OnInit {
-  users:User[] = [] 
+  users:User[] = []
 
-  constructor(private dataServices:DataServices ){}
+  constructor(private dataServices:DataServices ){
+    // dataServices.updateUser.subcribe()
+  }
     
   ngOnInit(): void {
-    this.users = this.dataServices.users
+
+    this.dataServices.getUsers()
+      .subscribe({
+        next: (res:User[]) => {
+          this.users = res
+          this.dataServices.setUsers(res)
+        }
+      })
+      this.dataServices.userUpdated$.subscribe(() => {
+        this.dataServices.getUsers().subscribe({
+          next: (res) => this.users = res
+        })
+      });
+    
   }
 
   ingresarUsuario(user: User){

@@ -15,6 +15,7 @@ import { ResultCalcComponent } from './calculadora/result/result';
 import { PresupuestoComponent } from './presupuesto/presupuesto.component';
 import { IngresosComponent } from './presupuesto/ingresos/ingresos';
 import { EgresosComponent } from './presupuesto/egresos/egresos';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { EgresosComponent } from './presupuesto/egresos/egresos';
     EgresosComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
